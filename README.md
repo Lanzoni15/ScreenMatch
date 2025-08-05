@@ -1,18 +1,21 @@
-# 🎥 Avaliação de Filmes em Java
+# 🎥 Avaliação de Filmes e Séries em Java
 
-Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a Objetos (POO)** com Java. A aplicação simula um sistema básico de cadastro e avaliação de filmes, permitindo registrar informações, adicionar notas e calcular a média das avaliações.
+Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a Objetos (POO)** com Java. A aplicação simula um sistema básico de cadastro e avaliação de **filmes e séries**, permitindo registrar informações, adicionar notas, calcular médias e estimar a duração total para maratonar.
 
-> 💡 **Objetivo:** Demonstrar domínio dos fundamentos de POO, com foco em encapsulamento, uso de getters/setters e organização de pacotes.
+> 💡 **Objetivo:** Demonstrar domínio dos fundamentos de POO, com foco em herança, encapsulamento, sobrescrita de métodos e organização de pacotes.
 
 ---
 
 ## ✨ Funcionalidades
 
 - ✅ Cadastro de filmes com nome, ano e duração
-- ✅ Exibição da ficha técnica do filme
+- ✅ Cadastro de séries com temporadas, episódios e duração por episódio
+- ✅ Exibição da ficha técnica de títulos
 - ✅ Registro de avaliações com diferentes notas
 - ✅ Cálculo automático da média das avaliações
-- ✅ Atributos protegidos com private e acesso via métodos públicos
+- ✅ Cálculo da duração total de uma série para maratona
+- ✅ Atributos protegidos com `private` e acesso via métodos públicos
+- ✅ Sobrescrita de métodos com `@Override`
 
 ---
 
@@ -25,17 +28,20 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 │       └── alura
 │           └── screenmatch
 │               └── modelos
-│                   └── Filme.java      # Classe modelo com encapsulamento e lógica de negócio
-└── Principal.java                      # Classe principal de execução
-
+│                   ├── Filme.java     # Classe Filme com campo específico 'diretor'
+│                   ├── Serie.java     # Classe Serie com lógica de duração por episódios
+│                   └── Titulo.java    # Classe mãe com atributos e métodos comuns
+└── Principal.java                     # Classe principal de execução
 ```
 
 ## 🧠 Conceitos Aplicados
 
 - 📦 Organização em pacotes (package)
+- 🧬 Herança entre classes (Filme e Serie herdam de Titulo)
 - 🔐 Encapsulamento com private, getters e setters
-- 🔁 Reutilização de métodos
-- 📊 Lógica para cálculo da média de avaliações
+- 🔁 Reutilização e sobrescrita de métodos (@Override)
+- 📊 Lógica para cálculo de média de avaliações
+- ⏱️ Cálculo da duração total de uma série
 - 🧹 Boas práticas de escrita e manutenção de código
 
 ## 💻 Código de Exemplo
@@ -45,7 +51,6 @@ Filme meuFilme = new Filme();
 meuFilme.setNome("O Poderoso Chefão");
 meuFilme.setAnoDeLancamento(1970);
 meuFilme.setDuracaoEmMinutos(180);
-
 meuFilme.exibeFichaTecnica();
 meuFilme.avalia(8);
 meuFilme.avalia(5);
@@ -53,6 +58,16 @@ meuFilme.avalia(10);
 
 System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
 System.out.println("Média: " + meuFilme.pegaMedia());
+
+Serie lost = new Serie();
+lost.setNome("Lost");
+lost.setAnoDeLancamento(2000);
+lost.setTemporadas(6);
+lost.setEpisodiosPorTemporada(24);
+lost.setMinutosPorEpisodio(42);
+
+System.out.println("Duração total para maratonar Lost: " + lost.getDuracaoEmMinutos() + " minutos");
+
 ```
 
 ## 🚀 Como Executar
@@ -60,13 +75,13 @@ System.out.println("Média: " + meuFilme.pegaMedia());
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/Lanzoni15/nome-do-repo.git
+git clone https://github.com/Lanzoni15/ScreenMatch.git
 ```
 
 2. Compile os arquivos Java:
 
 ```bash
-javac Filme.java Principal.java
+javac br/com/alura/screenmatch/modelos/*.java Principal.java
 ```
 
 3. Execute:
