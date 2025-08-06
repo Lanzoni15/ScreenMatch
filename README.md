@@ -14,6 +14,8 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 - ✅ Registro de avaliações com diferentes notas
 - ✅ Cálculo automático da média das avaliações
 - ✅ Cálculo da duração total de uma série para maratona
+- ✅ Cálculo do tempo total de filmes e séries com CalculadoraDeTempo
+- ✅ Uso de polimorfismo para somar a duração de diferentes tipos de títulos
 - ✅ Atributos protegidos com `private` e acesso via métodos públicos
 - ✅ Sobrescrita de métodos com `@Override`
 
@@ -27,11 +29,13 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 │   └── com
 │       └── alura
 │           └── screenmatch
+│               ├── calculos
+│               │   └── CalculadoraDeTempo.java    # Classe que soma a duração total dos títulos
 │               └── modelos
-│                   ├── Filme.java     # Classe Filme com campo específico 'diretor'
-│                   ├── Serie.java     # Classe Serie com lógica de duração por episódios
-│                   └── Titulo.java    # Classe mãe com atributos e métodos comuns
-└── Principal.java                     # Classe principal de execução
+│                   ├── Filme.java                 # Classe Filme com campo específico 'diretor'
+│                   ├── Serie.java                 # Classe Serie com lógica de duração por episódios
+│                   └── Titulo.java                # Classe mãe com atributos e métodos comuns
+└── Principal.java                                 # Classe principal de execução
 ```
 
 ## 🧠 Conceitos Aplicados
@@ -42,6 +46,7 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 - 🔁 Reutilização e sobrescrita de métodos (@Override)
 - 📊 Lógica para cálculo de média de avaliações
 - ⏱️ Cálculo da duração total de uma série
+- 🧠 Polimorfismo com uso da superclasse Titulo na CalculadoraDeTempo
 - 🧹 Boas práticas de escrita e manutenção de código
 
 ## ⏱️ Calculadora de Tempo
@@ -49,6 +54,7 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 A classe CalculadoraDeTempo permite somar automaticamente a duração total de diferentes títulos (filmes e séries), utilizando polimorfismo ao aceitar qualquer objeto que herde da classe Titulo.
 
 ## 🧮 Exemplo de uso:
+
 ```bash
 Filme filme1 = new Filme();
 filme1.setDuracaoEmMinutos(120);
@@ -66,8 +72,8 @@ System.out.println("Tempo total: " + calculadora.getTempoTotal() + " minutos");
 ```
 
 ## 📌 Conceito aplicado:
-✅ Polimorfismo: a calculadora utiliza a classe Titulo como parâmetro genérico, permitindo reutilização do método inclui() para diferentes tipos de mídia (filmes e séries).
 
+✅ Polimorfismo: a calculadora utiliza a classe Titulo como parâmetro genérico, permitindo reutilização do método inclui() para diferentes tipos de mídia (filmes e séries).
 
 ## 💻 Código de Exemplo
 
