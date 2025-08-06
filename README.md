@@ -48,7 +48,7 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 
 A classe CalculadoraDeTempo permite somar automaticamente a duração total de diferentes títulos (filmes e séries), utilizando polimorfismo ao aceitar qualquer objeto que herde da classe Titulo.
 
-# 🧮 Exemplo de uso:
+## 🧮 Exemplo de uso:
 ```bash
 Filme filme1 = new Filme();
 filme1.setDuracaoEmMinutos(120);
