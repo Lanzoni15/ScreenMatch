@@ -44,6 +44,31 @@ Projeto desenvolvido como parte dos meus estudos em **Programação Orientada a 
 - ⏱️ Cálculo da duração total de uma série
 - 🧹 Boas práticas de escrita e manutenção de código
 
+## ⏱️ Calculadora de Tempo
+
+A classe CalculadoraDeTempo permite somar automaticamente a duração total de diferentes títulos (filmes e séries), utilizando polimorfismo ao aceitar qualquer objeto que herde da classe Titulo.
+
+# 🧮 Exemplo de uso:
+```bash
+Filme filme1 = new Filme();
+filme1.setDuracaoEmMinutos(120);
+
+Serie serie1 = new Serie();
+serie1.setTemporadas(2);
+serie1.setEpisodiosPorTemporada(10);
+serie1.setMinutosPorEpisodio(45);
+
+CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+calculadora.inclui(filme1);
+calculadora.inclui(serie1);
+
+System.out.println("Tempo total: " + calculadora.getTempoTotal() + " minutos");
+```
+
+## 📌 Conceito aplicado:
+✅ Polimorfismo: a calculadora utiliza a classe Titulo como parâmetro genérico, permitindo reutilização do método inclui() para diferentes tipos de mídia (filmes e séries).
+
+
 ## 💻 Código de Exemplo
 
 ```bash
